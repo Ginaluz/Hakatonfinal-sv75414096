@@ -1,0 +1,25 @@
+{
+  "name": "hakatonfinal-sv75414096",
+  "version": "1.0.0",
+  "description": "Hakatonfinal-sv75414096",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app",
+    "dev": "nodemon src/app"
+  },
+  "keywords": [],
+  "author": "ginaluzsanchez@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cookie-session": "^2.1.0",
+    "cor": "^0.0.0",
+    "culqi-node": "^2.1.0",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.0",
+    "pug": "^3.0.2"
+  }
+}

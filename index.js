@@ -12,8 +12,8 @@ const products = [
   { id: 1, name: "2 Mancuernas", price: 50, stock: 50, category: 'Fitness' },
   { id: 2, name: "Banco ajustable", price: 50, stock: 50, category: 'Fitness' },
   { id: 3, name: "Kit de pesas con estuche", price: 50, stock: 50, category: 'Fitness' },
-  { id: 4, name: "Pesas", price: 50,stock: 50, category: 'Fitness' },
-  { id: 5, name: "Pesa de 30Kg", price: 50,stock: 50, category: 'Fitness' },
+  { id: 4, name: "Pesas", price: 50, stock: 50, category: 'Fitness' },
+  { id: 5, name: "Pesa de 30Kg", price: 50, stock: 50, category: 'Fitness' },
   { id: 6, name: "Bolsa de boxeo con pie", price: 50, stock: 50, category: 'Boxing' },
 ];
 
@@ -87,7 +87,7 @@ app.post('/api/cart', (req, res) => {
 });
 
 // API - Pasarela de pagos (Culqi)
-const culqi = new Culqi('sk_test_SWyklAB8rIyjXmje');
+const culqi = new Culqi({ privateKey: 'sk_test_SWyklAB8rIyjXmje' });  // Asegúrate de pasar un objeto con la propiedad privateKey
 app.post('/api/checkout', async (req, res) => {
   const { token, installments } = req.body;
   try {
@@ -97,9 +97,9 @@ app.post('/api/checkout', async (req, res) => {
     }, 0);
 
     const charge = await culqi.charge.create({
-      amount: amount * 100,
+      amount: amount * 100, // Convertir a centavos
       currency_code: 'PEN',
-      email: 'test@example.com',
+      email: 'test@example.com', // Este debe ser el email del usuario
       source_id: token,
       installments: installments
     });
